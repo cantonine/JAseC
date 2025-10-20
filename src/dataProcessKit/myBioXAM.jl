@@ -2,9 +2,8 @@ module myBioXAM
 using Reexport
 @reexport using XAM, GenomicFeatures
 
-using my
-mypth=joinpath(homedir(), "myjulia")
-include(joinpath(mypth, "compatible.jl"))
+using ..dataProcessKit
+include("compatible.jl")
 
 #{{ bamReadCount
 #[[ bamReadCount ]]
@@ -544,5 +543,5 @@ end
 
 #}}
 
-addhelpfromfile(@__FILE__, inmodule=@__MODULE__)
+# addhelpfromfile(@__FILE__, inmodule=@__MODULE__)
 end
