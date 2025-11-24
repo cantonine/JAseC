@@ -3590,10 +3590,10 @@ macro timetip(laps::Real, X)
     laps=Float64(laps)
     quote
         # global __lAST_tIME_tIP__
-        if time()-my.__lAST_tIME_tIP__::Float64 > $laps
-            my._reset_last_time_tip()
+        if time()-dataProcessKit.__lAST_tIME_tIP__::Float64 > $laps
+            dataProcessKit._reset_last_time_tip()
             # __lAST_tIME_tIP__=time()
-            print(my.Dates.format(my.Dates.now(), "HH:MM")*"> ")
+            print(dataProcessKit.Dates.format(dataProcessKit.Dates.now(), "HH:MM")*"> ")
             $X
         end
     end |> esc
@@ -3602,10 +3602,10 @@ macro timetip(X)
     # @eval(Main, __lAST_tIME_tIP__=time())
     quote
         # global __lAST_tIME_tIP__
-        if time()-my.__lAST_tIME_tIP__::Float64 > 300.0
-            my._reset_last_time_tip()
+        if time()-dataProcessKit.__lAST_tIME_tIP__::Float64 > 300.0
+            dataProcessKit._reset_last_time_tip()
             # __lAST_tIME_tIP__=time()
-            print(my.Dates.format(my.Dates.now(), "HH:MM")*"> ")
+            print(dataProcessKit.Dates.format(dataProcessKit.Dates.now(), "HH:MM")*"> ")
             $X
         end
     end |> esc
